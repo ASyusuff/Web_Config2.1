@@ -242,9 +242,9 @@ EOF
 
     sed -i "/$line_forward/a\\
     @	IN	A	$ip_address\\
-    $sub_domain1	IN	A	$ip_address\\
-    $sub_domain2	IN	A	$ip_address
-    " "/etc/bind/forward"
+$sub_domain1	IN	A	$ip_address\\
+$sub_domain2	IN	A	$ip_address
+	" "/etc/bind/forward"
 
 
     #editing file reverse
@@ -256,9 +256,9 @@ EOF
     line_reverse="@	IN	NS	$root_domain1".
 
     sed -i "/$line_reverse/a\\
-    $octet4	IN	PTR	$root_domain1.\\
-    $octet4	IN	PTR	$main_domain.\\
-    $octet4	IN	PTR	$sub_domain." /etc/bind/reverse
+$octet4	IN	PTR	$root_domain1.\\
+$octet4	IN	PTR	$main_domain.\\
+$octet4	IN	PTR	$sub_domain." /etc/bind/reverse
 
     #global firward options
     cat > /etc/bind/named.conf.options << EOF
