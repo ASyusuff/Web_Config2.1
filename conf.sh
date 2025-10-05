@@ -241,7 +241,7 @@ EOF
     line_forward="@	IN	NS	$root_domain1."
 
     sed -i "/$line_forward/a\\
-    @	IN	A	$ip_address\\
+@	IN	A	$ip_address\\
 $sub_domain1	IN	A	$ip_address\\
 $sub_domain2	IN	A	$ip_address
 	" "/etc/bind/forward"
