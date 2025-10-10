@@ -67,12 +67,21 @@ banner() {
 
 input_ip(){
     #input data user
-    read -p "Masukan ip address untuk web server: " ip_address
+    # Validate input
+	while true; do
+    	read -p "Enter IP address for web server: " ip_address
+    	if [[ $ip_address =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+        	echo "IP address $ip_address valid."
+        	break
+    	else
+        	echo "Invalid IP address format. Please try again."
+    	fi
+	done
 
     #pengolahan data user yang di input
     IFS='.' read -r octet1 octet2 octet3 octet4 <<< "$ip_address"
 
-    cat >data/ip.txt << EOF
+	cat >data/ip.txt << EOF
 ip_address=$ip_address
 octet1=$octet1
 octet2=$octet2
