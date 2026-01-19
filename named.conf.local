@@ -1,0 +1,11 @@
+zone "yusuf.id" {
+	type master;
+	file "/etc/bind/forward";
+};
+
+zone "96.168.192.in-addr.arpa" {
+	type master;
+	notify no;
+	file "/etc/bind/reverse";
+};
+
